@@ -5,6 +5,7 @@ function ModuleRoutes(app) {
     // GET all modules in a course
     app.get("/api/courses/:cid/modules", (req, res) => {
         const { cid } = req.params;
+        // console.log(JSON.stringify(db.modules))
         const modules = db.modules
             .filter((m) => m.course === cid);
         res.send(modules);
