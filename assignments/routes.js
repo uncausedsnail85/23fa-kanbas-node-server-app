@@ -13,14 +13,14 @@ function AssignmentRoutes(app) {
     // POST new assignment to a course
     app.post("/api/courses/:cid/assignments", (req, res) => {
         const { cid } = req.params;
-        console.log(`Before: ${JSON.stringify(db.assignments)}`)
+        // console.log(`Before: ${JSON.stringify(db.assignments)}`)
         const newAssignment = {
             ...req.body,
             course: cid,
             _id: new Date().getTime().toString(),
         };
         db.assignments.push(newAssignment);
-        console.log(`After: ${JSON.stringify(db.assignments)}`)
+        // console.log(`After: ${JSON.stringify(db.assignments)}`)
         res.send(newAssignment);
     });
 

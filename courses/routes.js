@@ -11,8 +11,8 @@ function CourseRoutes(app) {
     // GET one course by id
     app.get("/api/courses/:id", (req, res) => {
         const { id } = req.params;
-        console.log("courses: " + JSON.stringify(Database.courses))
-        console.log("id = " + id)
+        // console.log("courses: " + JSON.stringify(Database.courses))
+        // console.log("id = " + id)
         const course = Database.courses.find((course) => course._id === id);
         if (!course) {
             res.status(404).send("Course not found");
