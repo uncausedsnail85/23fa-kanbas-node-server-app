@@ -10,10 +10,7 @@ import AssignmentRoutes from './assignments/routes.js';
 const app = express()
 console.log(process.env.FRONTEND_URL);
 app.use(
-    cors({
-        credentials: true,
-        origin: process.env.FRONTEND_URL
-    })
+    cors()
 );
 
 app.use(express.json());
