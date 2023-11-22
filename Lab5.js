@@ -63,7 +63,7 @@ const Lab5 = (app) => {
     });
     app.put("/a5/todos/:id", (req, res) => {
         const { id } = req.params;
-        console.log(id)
+        // console.log(id)
         const todo = todos.find((t) => t.id === parseInt(id));
         if (!todo) {
             res
@@ -74,12 +74,12 @@ const Lab5 = (app) => {
                 });
             return;
         }
-        console.log("Before: " + JSON.stringify(todo))
+        // console.log("Before: " + JSON.stringify(todo))
         todo.title = req.body.title;
         todo.description = req.body.description;
         todo.due = req.body.due;
         todo.completed = req.body.completed;
-        console.log("After: " + JSON.stringify(todo))
+        // console.log("After: " + JSON.stringify(todo))
         res.sendStatus(200);
     });
 
