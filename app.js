@@ -10,8 +10,12 @@ import AssignmentRoutes from './assignments/routes.js';
 import mongoose from "mongoose";
 import UserRoutes from "./users/routes.js";
 
-// db   
-mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
+// db
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas";
+// console.log(`process.env.DB_CONNECTION_STRING: ${process.env.DB_CONNECTION_STRING}`)
+// console.log("process.env.FRONTEND_URL: " + process.env.FRONTEND_URL)
+// console.log("CONNECTION_STRING: " + CONNECTION_STRING)
+mongoose.connect(CONNECTION_STRING);
 
 const app = express()
 // console.log(process.env.FRONTEND_URL);
