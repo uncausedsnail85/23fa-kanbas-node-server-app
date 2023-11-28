@@ -22,22 +22,19 @@ const app = express()
 // if (process.env.FRONTEND_URL.includes(req.headers.origin)) {
 //     res.setHeader('Access-Control-Allow-Origin', origin);
 // }
-var origin = "";
 app.use((req, res, next) => {
-    // if (process.env.FRONTEND_URL.includes(origin)) {
-    //     origin = req.headers.origin;
-    // } else {
-    //     origin = "www.example.com"
-    // }
-    // console.log("origin: " + origin);
-    origin = req.headers.origin;
+    let origins = process.env.FRONTEND_URL.split(" ");
+    if (origins.includes(req.headers.origin)) {
+        res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+    } 
+    // origin = req.headers.origin;
     return next();
 });
-// console.log("origin: " + origin);
+// console.log(`process.env.FRONTEND_URL.split(" "): ${process.env.FRONTEND_URL.split(" ")}`)
 app.use(
     cors({
         credentials: true, // support cookies
-        origin: process.env.FRONTEND_URL,
+        origin: "",
     })
 );
 const sessionOptions = {
