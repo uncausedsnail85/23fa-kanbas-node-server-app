@@ -19,10 +19,12 @@ mongoose.connect(CONNECTION_STRING);
 
 const app = express()
 // console.log(process.env.FRONTEND_URL);
+// if (process.env.FRONTEND_URL.includes(req.headers.origin)) {
+//     res.setHeader('Access-Control-Allow-Origin', origin);
+// }
 app.use(
     cors({
         credentials: true, // support cookies
-        origin: process.env.FRONTEND_URL,
     })
 );
 const sessionOptions = {
