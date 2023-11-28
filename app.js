@@ -36,7 +36,7 @@ app.use(
         credentials: true, // support cookies
 
         // The cors npm package provides the option to write the function for origin value. Which will help us to enable CORS for multiple domains.
-        origin: "https://a5--marvelous-lolly-d431df.netlify.app/"
+        origin: "https://a5--marvelous-lolly-d431df.netlify.app"
     })
 );
 const sessionOptions = {
