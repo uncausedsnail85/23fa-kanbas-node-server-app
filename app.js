@@ -25,6 +25,7 @@ const app = express()
 app.use(
     cors({
         credentials: true, // support cookies
+        origin: process.env.FRONTEND_URL,
     })
 );
 const sessionOptions = {
